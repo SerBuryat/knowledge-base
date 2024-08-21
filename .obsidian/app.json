@@ -1,0 +1,16 @@
+{
+  "promptDelete": false,
+  "attachmentFolderPath": "files",
+  "userIgnoreFilters": [
+    "files/",
+    "home/",
+    "inbox/",
+    "code/"
+  ],
+  "alwaysUpdateLinks": true,
+  "spellcheck": false,
+  "spellcheckDictionary": [
+    "APIC",
+    "userspace"
+  ]
+}

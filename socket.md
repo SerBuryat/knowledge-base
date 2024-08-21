@@ -1,0 +1,3 @@
+A *socket* is the name of a **==software interface for ensuring data exchange between [[OS process]]es==**. Processes in such exchange **==can be executed both on one computer and on different computers connected to each other only by a network==** . A socket is an abstract object **==representing the end point of a connection==**.
+
+A *network socket* is a software structure within a *network node* of a *computer network* that **==serves as an endpoint for sending and receiving data across the network==**.

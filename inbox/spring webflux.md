@@ -1,0 +1,31 @@
+- [ ] `publishOn` method for assigning job for some `ThreadPool`
+- [ ] `WebClient` has "*event loop* style"
+- [ ] WebFlux and Reactor concurrency models
+- [ ] **==IMHO==** reactive model: 
+- request in -> netty-thread send it to event queue -> netty-thread returns to netty's thread pool 
+- *event loop* assign handler(worker-thread) for event -> worker faced IO bound task -> worker sent to queue -> worker returns to worker's thread pool
+- IO bound sent "ready for process" event (data is coming from DB, REST API etc.)
+- *event loop* assign handler(worker-thread) for event -> worker sent response out -> worker returns to worker's thread pool
+- [ ] - reactive *event loop* register *callback* via **==platform==** (==*is OS kernel level API*???==), platform check completaion status and trigger worker thread (WebFlux) to continue code via callback - https://www.baeldung.com/spring-webflux-concurrency
+- [ ] - reactive programming models
+- [ ] - **==one thread==** (usually *event loop*) **==can check (via *endless loop*) for I/O operation==** completion **==instead every thread blocked==** until it (*event-driven systems* based on this approach)
+- [ ] - *event-driven systems* divided into parts (*event handlers*) communicated via *events* and *event-queue* (they move events to queue and single thread infinitly check this queue and run event handlers???)
+- [ ] - reactive vs *event-driven system* (reactive based on event-driven???)
+- [ ] - [Spring WebFlux threading model](https://hackernoon.com/an-intro-to-spring-webflux-threading-model)
+- [ ] - [Spring WebFlux Visualized: Threading and EventLoops](https://www.stefankreidel.io/blog/spring-webflux) (well visualized via gifs)
+-  The core of *reactive programming* defines, that **instead of waiting for blocking operation (I/O bound) to finish, threads do other things in the meantime and pick up the response after the operation completed**
+- *reactive programming* is first and **foremost centered around non-blocking**
+- parts of a request can be handled by multiple threads (1st - accept request, 2nd - process, 3rd - complete etc.)
+- requests are handled by `EventLoops`. **`EventLoops` are basically just threads** with the addition that **they have to run at all** time (cpu bound jobs)
+- once a blocking operation is reached, **`EventLoops` do not wait around for the operation to be finished** (register *callback* which will execute when I/O finishes) but **hand over the execution context** (some 'threadlocal' data ) and are then free to process other requests
+- **java NIO is core of non-blocking I/O in Spring WebFlux**
+- `EventLoops` to handle many requests **only works** and scales efficiently, **if all blocking operations are implemented reactively**
+- for blocking (non reactive impl ops) use `Scheduler` (`publishOn(Schedulers.boundedElastic())`) **it helps don't block `EventLoop` threads** (`Schedulers.boundedElastic()` threads are **more lightweight and intended to be used for blocking operations**)
+- for heavy compute steps as the bounded-elastic threads are intended for, use `.publishOn(Schedulers.parallel())` 
+- async and non-blocking I/O is two aspects to impl a parallelism
+	- non-blocking I/O is I/O complition without blocking *thread* (CPU) via *DMA*/sockets/platform features
+	- async is run parallel thread using several CPUs
+- [ ] - [Netty brief nutshell](https://baekjungho.github.io/wiki/spring/spring-netty/) - threading model, core concepts and components(+links)
+- [ ] - [Performance Comparison — Thread Pool vs. Virtual Threads (Project Loom) In Spring Boot Applications](https://dzone.com/articles/request-handling-approaches-threadpool-webflux-cor) - usefull perfomance graphics
+- [ ] - There’s also an initiative to standardize the reactive streams API. The initiative is called [Reactive Streams](https://www.reactive-streams.org/). It defines a set of rules for asynchronous stream processing with non-blocking back pressure.
+- [ ] - reactive programming paradigm based on decouple receive events/messages/request/signals and handling/process them in parallel or later. Reactive consists of *async* and *non-blocking* approach where *main thread* **==not blocked==** and **==async event handling==**. **Don't be confused with *non-blocking I/O*(!!!)** this is **just possibility of platform to non-blocking/async I/O processes handling** (via `epoll()`, `wepoll()` etc.)

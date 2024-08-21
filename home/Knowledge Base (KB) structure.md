@@ -1,0 +1,7 @@
+- files  - jpg, png, pdf, etc. *(excluded from search)*
+- home - meta notes about Knowledge Base(KB) *(excluded from search)*
+- inbox - incoming unlinked or temporary unlinked thoughts
+- periodic - daily notes
+- projects - work projects with in progress/done/future statuses
+- tasks - task manager
+- code - helpfull code snippets
