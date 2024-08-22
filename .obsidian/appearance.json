@@ -1,4 +1,6 @@
 {
   "accentColor": "#008a17",
-  "theme": "system"
+  "theme": "system",
+  "cssTheme": "Catppuccin",
+  "baseFontSize": 20
 }
