@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "continuation.md",
+                "file": "java multithreading.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "85fc2699a88bf4ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Node.js.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "continuation.md",
+                "file": "Node.js.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "continuation.md",
+                "file": "Node.js.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "continuation.md"
+                "file": "Node.js.md"
               }
             }
           }
@@ -147,12 +160,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9f27b37aff66fbfc",
+  "active": "85fc2699a88bf4ed",
   "lastOpenFiles": [
+    "java multithreading.md",
+    "Node.js.md",
+    "java nio.md",
+    "continuation.md",
     "code/Java/HttpClient.md",
     "Untitled",
     "- infrastructure",
-    "Untitled.md",
     "code/Java/Jackson/@AssertTrue-@AssertFalse validation.md",
     "VPS-VDS.md",
     "IO processes.md",
@@ -176,7 +192,6 @@
     "files/rx-observer-pattern.webp",
     "files/books/io_uring.pdf",
     "java.md",
-    "java nio.md",
     "inbox/spring webflux.md",
     "files/books/Java NIO (O'Reilly).pdf",
     "files/books",
@@ -186,10 +201,8 @@
     "CPS.md",
     "fiber.md",
     "coroutine.md",
-    "continuation.md",
     "thread.md",
     "Netty.md",
-    "java multithreading.md",
     "code/Java/Jackson",
     "code/Java",
     "files/fibers and coroutines.pdf",

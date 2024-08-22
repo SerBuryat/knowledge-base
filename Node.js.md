@@ -1,0 +1,1 @@
+*Node.js* is an open-source, **==cross-platform JS runtime environment that enables server-side execution==** of JS code. It allows developers to **==build server-side applications using JS==**, the same language that is used for client-side scripting in web browsers.
