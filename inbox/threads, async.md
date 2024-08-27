@@ -115,7 +115,7 @@
 - `Channel` are gateways through which the native I/O services(file, network socket etc.) of the OS can be accessed with a minimum of overhead, and `Buffer` are the internal endpoints used by `Channel` to send and receive data.
 - `Channel` implementations often use native code, so this is only natural. The `Channel` interfaces allow you to gain access to low-level I/O services in a controlled and portable way.
 - `Channel` can operate in *blocking* or *nonblocking* modes. A `Channel` in nonblocking mode never puts the invoking *thread* to sleep. The requested operation either completes immediately or returns a result indicating that nothing was done.
-- `FileChannel` are always blocking and cannot be placed into nonblocking mode. Modern OS have sophisticated caching and prefetch algorithms that usually give local disk I/O very low latency. The nonblocking paradigm of stream-oriented I/O doesn't make as much sense for file-oriented operations because of the fundamentally **different nature of file I/O(==what is diff???==)**. **For file I/O, the true winner is asynchronous I/O(==[non-blocking I/O and async I/O](https://stackoverflow.com/questions/17615272/java-selector-is-asynchronous-or-non-blocking-architecture)???==)**, which lets a process request one or more I/O operations from the OS but does not wait for them to complete. The process is notified at a later time that the requested I/O has completed (**==how notified ???==**). Asynchronous I/O is an advanced capability not available on many OS.
+- `FileChannel` are always blocking and cannot be placed into nonblocking mode. Modern OS have sophisticated caching and prefetch algorithms that usually give local disk I/O very low latency. The nonblocking paradigm of stream-oriented I/O doesn't make as much sense for file-oriented operations because of the fundamentally **different nature of file I/O(==what is diff???==)**. For file I/O, the true winner is asynchronous I/O([non-blocking I/O and async I/O](https://stackoverflow.com/questions/17615272/java-selector-is-asynchronous-or-non-blocking-architecture)???), which lets a process request one or more I/O operations from the OS but does not wait for them to complete. The process is notified at a later time that the requested I/O has completed (**==how notified ???==**). Asynchronous I/O is an advanced capability not available on many OS.
 - [ ] - A name used for asynchronous I/O in the Windows API is _[overlapped I/O](https://en.wikipedia.org/wiki/Overlapped_I/O "Overlapped I/O")_.
 - [ ] - [Direct memory access](https://en.wikipedia.org/wiki/Direct_memory_access "Direct memory access") (DMA) can greatly increase the efficiency of a polling-based system, and [hardware interrupts](https://en.wikipedia.org/wiki/Hardware_interrupt "Hardware interrupt") can eliminate the need for polling entirely.
 - [ ] - `int channels = selector.select()`- this call blocks indefinitely if no `Channels` are ready. As soon as at least one of the registered `Channels` is ready, the selection key set of the `Selector` is updated, and the ready sets for each ready `Channel` will be updated. The return value will be the number of `Channels` determined to be ready.
@@ -171,3 +171,34 @@
 > So signals are a sort of **inter-process communication**.*
 > *Signals are passed from the kernel to user space using a mechanism called **signal delivery**.*
 > [source](How are signals handled in Linux? How are they passed to user space?)
+
+- [ ] - [Non-blocking IO under the Hood](https://www.youtube.com/watch?v=2CjQbMGYNIk) (video)
+- I/O source - HDD/SSD, network, devices: mouse, printer, micro
+- blocking I/O - when process WAITING for I/O completion (thread going to SLEEP state)
+- user code connect to I/O via OS kernel API (user code doesn't interact with devices directly) 
+- OS provide a *socket* to a user code for I/O processes
+- *socket* represent an "endpoint access of inter process communication"
+- `socket()` returns *file descriptor (FD)*
+- *FD* is an "address" or pointer to file/socket/pipes/device (I/O resource)
+- userspace communicate with I/O resource via *FD*'s - `read(file_descriptor)` -> *All you need is FD!*
+-  [blocking I/O client/server](https://github.com/ThomasPokorny/http1.1-server) example in C
+- *multithreading* concurrency model give us to start several processes in parallel (threads == cores) or concurrently (threads > cores)
+- *thread-per-request* model -> 1 request = 1 thread
+- *thread-per-request* model has drawbacks: 1 thread = 1 MB -> bad resource's utilization, context switching, struggle for resources (deadlock, race condition)
+- Peripheral devices can communicate directly to memory via *direct memory access (DMA)* instead CPU control/handle this processes
+> *RAM is type of memory but DMA is peripheral used to transfer data without CPU*
+- *socket* receive a request packets -> *network interface controller (NIC)* use *advanced programmable interrupt controller (APIC)* to interrupt CPU -> CPU switch in interrupt context and "link *socket* and memory" via *DMA* to communicate directly (without CPU)
+- Non-blocking I/O model comes with *asynchronous* - instead *synchronous* code execution "one-by-one line" it starts execute via "when data arrive, then do something" with *continuation passing style (CPS)* via `callback`/`async/await`/`Coroutine`/`Promise`/`Feature`
+- *Event loop* is core part of non-blocking I/O for monitoring multiple *FD*s (multiplexing I/O)
+- *Event Loop* **polls** multiple *FD*'s for events ("Is I/O operation ready for proceed?")
+- *Event Loop*  **stops** (prevent useless CPU clocks work) if no events available and wake it up when any will come (in `java.nio.Selector.select()` **blocks calling thread** until FD's event are ready)
+- *Event Loop* parts: 
+	- *Kernel Queue* is structure (basically linked list) in memory to keep tracks of I/O tasks (simply, when need to write/read operation to handle it's adding to *KQ*)
+	- *Interest List* is structure (array) of monitored *FD*s
+- [event-loop-tcp-server](https://github.com/ThomasPokorny/kqueue-tcp-server) C example
+- Notions:
+	- don't block *Event Loop*
+	- don't use it for CPU intensive work (use worker threads and parallelization - Node.js use [libuv](https://docs.libuv.org/en/v1.x/))
+	- **make sure using non-blocking I/O OS calls** (`poll`/`kqueue`/`iocp`) for *Event Loop* cause blocking I/O OS calls just `read`/`write`blocks *Event Loop* and solutions based on it (Netty/Reactor/Node.js etc.)
+	- *FD*s is living in the process memory and if process dies, all corresponding *FD*s also die 
+- Non-blocking I/O appends additional complexity like as "asynchronous code (*colored code*)"

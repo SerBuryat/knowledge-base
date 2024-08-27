@@ -8,9 +8,10 @@
     "code/"
   ],
   "alwaysUpdateLinks": true,
-  "spellcheck": false,
+  "spellcheck": true,
   "spellcheckDictionary": [
     "APIC",
-    "userspace"
+    "userspace",
+    "Coroutines"
   ]
 }
