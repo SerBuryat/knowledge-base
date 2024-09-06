@@ -5,7 +5,7 @@
 - [x] - *direct memory access (DMA)* handling *I/O* without CPU ✅ 2024-07-24
 - [x] - **Direct memory access (DMA)** is a feature of computer systems that allows certain hardware subsystems to **access** main system **memory independently of the CPU**. **Without DMA**, when the **CPU** is using programmed input/output, it is typically **fully occupied for the entire duration of the read or write** operation, and is thus unavailable to perform other work. **With DMA, the CPU first initiates the transfer, then it does other operations** while the transfer is in progress, and it **finally receives an interrupt from the DMA** controller (DMAC) when the operation is done. ✅ 2024-07-24
 - [x] - async vs non-blocking ✅ 2024-07-24
-- [ ] - *async* execution vs *sync* execution - *async* can be set only against *sync* and vice versa 
+- [ ] - *async* execution vs *sync* execution - *async* can be set only against *sync* and vice versa
 - *sync* - going from up to bottom (in code), before reach code line 2 it need to
  complete a code line 1 
 -  *async* - delegating some job in background and *main thread*(*execution thread*) goes forward instead wait this section of code (*this makes async is a non-blocking*), no need to wait line code 2 completion before run line code, 2 line can be run in background(another thread for example) 
@@ -55,7 +55,7 @@
 - [ ] - via *virtual threads* Java tries to escape "red/blue colored code problem" (instead of using await/suspend words) - [that's why author said Java doesn't have red/blue code problem](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/#:~:text=Wanna%20know%20one%20that%20doesn%E2%80%99t%3F%20Java.%20I%20know%20right%3F%20How%20often%20do%20you%20get%20to%20say%2C%20%E2%80%9CYeah%2C%20Java%20is%20the%20one%20that%20really%20does%20this%20right.%E2%80%9D%3F%20But%20there%20you%20go.%20In%20their%20defense%2C%20they%20are%20actively%20trying%20to%20correct%20this%20oversight%20by%20moving%20to%20futures%20and%20async%20IO.)
 - [ ] - *event loop* is **design pattern** that waits for and **dispatches events or messages** in a program and the **core mechanism that enables asynchronous operations** 
 - [ ] *event loop* is what allows *Node.js* to perform *non-blocking I/O* operations cause *event loop* is the only one mechanism to do *async* stuff in JS
-- [ ] - In Go, things are similar, except that we have "one OS thread per CPU" and Go has its own scheduler that gives goroutines time on those threads. Quite a lot of I/O is, in fact, handled through an event loop; e.g. when a goroutine wants to read from a socket that doesn't have data available, it registers with the *netpoller* and goes to sleep. The *netpoller* is just an *event loop* using *nonblocking I/O* and *epoll* or *kqueue* or whatever your OS has for event notification — but it's one that you don't have to manage yourself. The runtime can put an abstraction of *blocking I/O* on top of the *event loop* just by suspending a *goroutine* and running another one ([link]([https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/](https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/ "https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/")))
+- [ ] - In Go, things are similar, except that we have "one OS thread per CPU" and Go has its own scheduler that gives goroutines time on those threads. Quite a lot of I/O is, in fact, handled through an event loop; e.g. when a goroutine wants to read from a socket that doesn't have data available, it registers with the *netpoller* and goes to sleep. The *netpoller* is just an *event loop* using *nonblocking I/O* and *epoll* or *kqueue* or whatever your OS has for event notification — but it's one that you don't have to manage yourself. The runtime can put an abstraction of *blocking I/O* on top of the *event loop* just by suspending a *goroutine* and running another one ([link]([https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/](https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/ "https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/")))asdasdasdasd
 - [ ] - *Goriutines* (go *coroutines*) and `epoll()` non blocking io implementation([link]([https://medium.com/@chenymj23/diving-into-golang-how-does-it-effectively-wrap-the-functionality-of-epoll-26065f0654ba](https://medium.com/@chenymj23/diving-into-golang-how-does-it-effectively-wrap-the-functionality-of-epoll-26065f0654ba "https://medium.com/@chenymj23/diving-into-golang-how-does-it-effectively-wrap-the-functionality-of-epoll-26065f0654ba")))
 - [ ] - OS *async* *I/O* implementations (3 different API: *kqueue*, *epoll*, *IOCP*)([link]([https://habr.com/ru/articles/600123/](https://habr.com/ru/articles/600123/ "https://habr.com/ru/articles/600123/"))):
 - FreeBSD, macOS - **kqueue**, Linux - **epoll**, Windows - **I/O Completion Ports**
@@ -102,6 +102,7 @@
  - [ ]  - The class `java.nio.channels.Selector` is the linchpin(core) of Java’s *non-blocking I/O* implementation. It uses the event notification API to indicate which, among a set of non-blocking *sockets*, are ready for *I/O*.
 
  - [ ] - `Selector -> Channel[] -> Buffer`
+ - [ ] - Selector itself is also an abstract class and its implementations depend on the OS - Linux `sun.nio.ch.EPollSelectorImpl` and Windows `sun.nio.ch.WindowsSelectorImpl`
  - [ ] `java.nio.*`:
  - `Selector` _is the **cornerstone of non blocking I/O**.  
  - `Selector` manages multiple `Channels` , **either server or client channels**.  
@@ -202,3 +203,9 @@
 	- **make sure using non-blocking I/O OS calls** (`poll`/`kqueue`/`iocp`) for *Event Loop* cause blocking I/O OS calls just `read`/`write`blocks *Event Loop* and solutions based on it (Netty/Reactor/Node.js etc.)
 	- *FD*s is living in the process memory and if process dies, all corresponding *FD*s also die 
 - Non-blocking I/O appends additional complexity like as "asynchronous code (*colored code*)"
+- *Observer pattern* It is often used for implementing distributed [event-handling](https://en.wikipedia.org/wiki/Event_handling "Event handling") systems in [event-driven software](https://en.wikipedia.org/wiki/Event-driven_programming "Event-driven programming")
+- *Observer pattern*  and implementations :
+	- Observer: **observable has a list of observers and notify them after some state changes**
+	- *Publisher-subscriber pattern* is a decoupled variation of Observer: **publisher send a message about state changing into message queue and subscribers gonna notified and poll this message**
+	- *Event Emitter/Target/Dispatcher pattern*
+	- *Signals pattern*

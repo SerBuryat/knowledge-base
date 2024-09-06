@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6faebf26ab6e9a89",
+        "id": "21c038a2e7c1c595",
         "type": "tabs",
         "children": [
           {
-            "id": "6bc530241b14ad76",
+            "id": "e3fe7efa23c428eb",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 299.5,
-    "collapsed": true
+    "width": 299.5
   },
   "right": {
     "id": "d8896989a780996c",
@@ -148,21 +147,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6bc530241b14ad76",
+  "active": "e3fe7efa23c428eb",
   "lastOpenFiles": [
-    "inbox/spring webflux.md",
+    "continuation.md",
+    "coroutine.md",
     "inbox/threads, async.md",
+    "java nio.md",
+    "POSIX.md",
+    "reactive programming.md",
+    "thread.md",
+    "CPS.md",
+    "inbox/spring webflux.md",
     "Untitled.canvas",
     "inbox/side dev thoughts.md",
     "java multithreading.md",
-    "coroutine.md",
     "IO processes.md",
     "socket.md",
     "file descriptor.md",
     "home/Knowledge Base (KB) structure.md",
     "Node.js.md",
-    "java nio.md",
-    "continuation.md",
     "code/Java/HttpClient.md",
     "Untitled",
     "- infrastructure",
@@ -170,9 +173,7 @@
     "VPS-VDS.md",
     "Virtual Hosting.md",
     "OS process.md",
-    "reactive programming.md",
     "virtual thread.md",
-    "POSIX.md",
     "files/io-models/asynchronous-io-model.png",
     "files/spring-web-flux-thread-model.gif",
     "files/signal-driven-io-model.png",
@@ -189,9 +190,7 @@
     "files/books/Java NIO (O'Reilly).pdf",
     "files/books",
     "hypethreading.md",
-    "CPS.md",
     "fiber.md",
-    "thread.md",
     "code/Java/Jackson",
     "code/Java",
     "files/fibers and coroutines.pdf",

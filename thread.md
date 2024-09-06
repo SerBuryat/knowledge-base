@@ -28,12 +28,12 @@ Thread can be **==interrupted(stopped) in middle of his execution==** by another
 
 Means **=="true parallelism"==** *(unlike "Concurrency")* is possible **==only for multicore CPU==** - threads possible to **==run at the same time==** on different CPUs *(physical or virtual via [[hypethreading]])*.
 
-### Requierments and problems
+### Requirements and problems
 
-- threads **==resource managment==**: memory, CPU time and **==context switching==**
+- threads **==resource management==**: memory, CPU time and **==context switching==**
 > *~1MB RAM per thread and time to switching between threads*
 - **==race condition - the "fight" for sharing resources==** (*threads synchronization*)
-> *non concurrent data structures losses cause "thread stopes in the middle" by thread scheduler*
+> *non concurrent data structures losses cause "thread stops in the middle" by thread scheduler*
 - **==deadlock==**- **==waiting==** for another thread **==release shared resource==**
 > *infinite mutual threads waiting*
 - **==perfomance bottlenecks==** 

@@ -1,14 +1,14 @@
->*react when some event happend*
+Reactive programming is programming with **asynchronous data streams**.
 
-Reactive programming is a declarative **==programming paradigm that is based on the idea of *asynchronous* event processing==**. *Async* processing **==means that the processing of an event does not block==** the processing of other events (or other threads).
+Reactive programming is a declarative programming paradigm that is based on the idea of ***asynchronous* event processing**. *Async* processing means that the **processing of an event does not block** the processing of **other events** (or other threads).
 
->*In the GUI applications, the user interface was updated only after some user action, like clicking a button. The heart of the application was a so-called event loop. It was an endless loop and was responsible for handling user input and updating the user interface. But as the program was waiting synchronously (i.e., blocking) for the user input, nothing else could happen. And waiting synchronously for an event that doesn’t come means that the whole application hangs and the GUI becomes unresponsive.
+>*In the GUI applications, the user interface was updated only after some user action, like clicking a button. The heart of the application was a so-called **event loop**. It was an endless loop and was **responsible for handling user input** and updating the user interface. But as the program was waiting synchronously (i.e., blocking) for the user input, nothing else could happen. And waiting synchronously for an event that doesn’t come means that the whole application hangs and the GUI becomes unresponsive.
 >
->*The solution is to decouple the event handling from the GUI update. The decoupling is done by introducing an event queue and parallel event processing. This approach is well known as the producer and consumer pattern. A thread handling user input puts events into the queue, and a consumer thread takes events from the queue’s head and processes them. The consumer thread may also act as a producer by putting GUI update requests into a queue processed by a GUI update thread. Such producer/consumer chaining then leads to reactive streams.*
+>*The solution is to **decouple the event handling** from the GUI update. The decoupling is done by introducing an **event queue** and **parallel event processing**. This approach is well known as the **producer and consumer pattern**. A thread handling user input **puts events into the queue, and a consumer thread takes events from the queue’s head** and processes them. The consumer thread may also act as a producer by putting GUI update requests into a queue processed by a GUI update thread. Such **producer/consumer chaining** then leads to **reactive streams.***
 
-Here is a simpe `SimpleEventLoopExample`:
-- 1 - *main thread* to handle inputs(or requests) and stay responsive
-- 15 - *worker threads* to handle events
+Here is a simple `SimpleEventLoopExample`:
+- 1 - *main thread* to handle user inputs (or requests) and stay responsive
+- 15 - *worker threads* to parallel handle events
 - *main thread* put events to queue
 - *worker threads* take it from queue and handle asynchronously (don't block *main thread*)
 
@@ -16,12 +16,7 @@ Here is a simpe `SimpleEventLoopExample`:
 public class SimpleEventLoop {  
   
     public static void main(String[] args) {  
-        var eventQueue = new EventQueue();  
-  
-        // add some task for handling from start  
-        for(int i = 0; i <= 500; i++) {  
-            eventQueue.add(new Event("event " + i));  
-        }  
+        var eventQueue = new EventQueue();   
   
         // threads = CPU cores  
         var executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());  
@@ -66,9 +61,6 @@ public class SimpleEventLoop {
         }  
   
         public void handleEvents() {  
-        // we can change this part from pull() model to push()  
-		// instead endless check new event exists  
-		// just notify event handler via Observer pattern
             while (true) {  
                 var event = eventQueue.next();  
   

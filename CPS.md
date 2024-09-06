@@ -2,9 +2,9 @@
 
 CPS is a technique of code execution model in which **functions receive arguments representing their future behavior** - **these arguments are called *continuations* (*callback* or "rest of the computation")**.
 
-The simplest implemenation of CPS is passing *callback* function.
+The simplest implementation of CPS is passing *callback* function.
 
-Example of *async* implemantation via *callback* in java:
+Example of *async* implementation via *callback* in java:
 ``` java title:CpsViaCallbacks.java
 import java.util.function.Predicate;  
   
