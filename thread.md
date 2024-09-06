@@ -1,7 +1,8 @@
 
-Is the ==**smallest execution== sequnce (unit)** in **[[OS process]] ==managed by OS thread scheduler**==.
+Is the **smallest execution sequnce (unit)** in [[OS process]] could **independently managed by OS thread scheduler**.
 
 > *It's fair to think about thread as an OS subproccess*
+
 
 ## Multithreading
 
@@ -11,6 +12,7 @@ OS switches thread if **==time is up==** or **==thread blocks==** for I/O.
 **==Threads sharing memory and recources==** within process.
 Threads have ==***common* heap**== and ==***separated* stacks**==.
 
+
 ### Thread models
 
 - **==preemptive==** - OS or runtime decide when to switching threads
@@ -18,15 +20,19 @@ Threads have ==***common* heap**== and ==***separated* stacks**==.
 
 - **==cooperative(non-preemptive)==** - the thread release and gives time to another threads
 >*running thread will continue to run until it signals that it can yield to another*
+
+
 ### Concurrency 
 
 Means **=="dirty parallelism"==** - multiple threads execution **==on single CPU==**.
 Thread can be **==interrupted(stopped) in middle of his execution==** by another thread to run.
 > *For human sight even concurrency looks like "at the same time" cause of realy fast CPU threads switching (4ghz CPU speed = 4B ops per sec)*
 
+
 ### Parallelism
 
 Means **=="true parallelism"==** *(unlike "Concurrency")* is possible **==only for multicore CPU==** - threads possible to **==run at the same time==** on different CPUs *(physical or virtual via [[hypethreading]])*.
+
 
 ### Requirements and problems
 

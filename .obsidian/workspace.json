@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/threads, async.md",
+                "file": "async.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/threads, async.md",
+                "file": "async.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/threads, async.md",
+                "file": "async.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/threads, async.md"
+                "file": "async.md"
               }
             }
           }
@@ -149,18 +149,21 @@
   },
   "active": "e3fe7efa23c428eb",
   "lastOpenFiles": [
+    "VPS-VDS.md",
+    "virtual hosting.md",
+    "async.md",
+    "thread.md",
+    "java multithreading.md",
+    "inbox/threads, async.md",
     "continuation.md",
     "coroutine.md",
-    "inbox/threads, async.md",
     "java nio.md",
     "POSIX.md",
     "reactive programming.md",
-    "thread.md",
     "CPS.md",
     "inbox/spring webflux.md",
     "Untitled.canvas",
     "inbox/side dev thoughts.md",
-    "java multithreading.md",
     "IO processes.md",
     "socket.md",
     "file descriptor.md",
@@ -170,8 +173,6 @@
     "Untitled",
     "- infrastructure",
     "code/Java/Jackson/@AssertTrue-@AssertFalse validation.md",
-    "VPS-VDS.md",
-    "Virtual Hosting.md",
     "OS process.md",
     "virtual thread.md",
     "files/io-models/asynchronous-io-model.png",
