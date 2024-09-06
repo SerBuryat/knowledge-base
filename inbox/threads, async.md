@@ -101,10 +101,10 @@
  - [ ] - A `java.nio.channels.Selector` provides a mechanism for monitoring one or more NIO channels and recognizing when one or more become available for data transfer. This way, a **single thread can be used for managing multiple channels**, and thus multiple network connections.
  - [ ]  - The class `java.nio.channels.Selector` is the linchpin(core) of Java’s *non-blocking I/O* implementation. It uses the event notification API to indicate which, among a set of non-blocking *sockets*, are ready for *I/O*.
 
- - [ ] - `Selector -> Channel[] -> Buffer`
- - [ ] - Selector itself is also an abstract class and its implementations depend on the OS - Linux `sun.nio.ch.EPollSelectorImpl` and Windows `sun.nio.ch.WindowsSelectorImpl`
+ - [ ] - `Selector -> SelectableChannel[] -> Buffer`
+ - [ ] - `Selector` itself is also an abstract class and its implementations depend on the OS - Linux `sun.nio.ch.EPollSelectorImpl` and Windows `sun.nio.ch.WindowsSelectorImpl`
  - [ ] `java.nio.*`:
- - `Selector` _is the **cornerstone of non blocking I/O**.  
+ - `Selector` is the **cornerstone of non blocking I/O**.  
  - `Selector` manages multiple `Channels` , **either server or client channels**.  
 - Every time you deal with a new `Channel` you register this `Channel` on the `Selector` with the events you are interested in.  
 - `Channel` must `implements SelectableChannel` which support non-blocking mode  
@@ -203,9 +203,3 @@
 	- **make sure using non-blocking I/O OS calls** (`poll`/`kqueue`/`iocp`) for *Event Loop* cause blocking I/O OS calls just `read`/`write`blocks *Event Loop* and solutions based on it (Netty/Reactor/Node.js etc.)
 	- *FD*s is living in the process memory and if process dies, all corresponding *FD*s also die 
 - Non-blocking I/O appends additional complexity like as "asynchronous code (*colored code*)"
-- *Observer pattern* It is often used for implementing distributed [event-handling](https://en.wikipedia.org/wiki/Event_handling "Event handling") systems in [event-driven software](https://en.wikipedia.org/wiki/Event-driven_programming "Event-driven programming")
-- *Observer pattern*  and implementations :
-	- Observer: **observable has a list of observers and notify them after some state changes**
-	- *Publisher-subscriber pattern* is a decoupled variation of Observer: **publisher send a message about state changing into message queue and subscribers gonna notified and poll this message**
-	- *Event Emitter/Target/Dispatcher pattern*
-	- *Signals pattern*

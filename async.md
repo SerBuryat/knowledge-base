@@ -5,7 +5,7 @@ Asynchronous - **code execution in an unspecified order**.
 
 ## async vs sync
 
-- sync and async pseudocode examples
+- sync and async pseudo-code examples
 - sync - executing code **one line by one**
 - async - executing code in **unspecified moment of time** (JS `addEventListener()` with *callback* example)
 
@@ -14,10 +14,10 @@ Asynchronous - **code execution in an unspecified order**.
 
 We cant compare async and mutlithreading:
 - async - about execution order
-- multithreading - ability of CPU to provide mutliple execution threads
+- multithreading - ability of CPU to provide multiple execution threads
 
-We can **achive async via multithreadign**:
-- async could use single thread (JS and it's EvenLoop example)
+We can **achieve async via multithreading**:
+- async could use single thread (JS and it's Event Loop example)
 - async could use multithreading (Java multihreading example)
 
 

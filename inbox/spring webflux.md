@@ -29,3 +29,21 @@
 - [ ] - [Performance Comparison — Thread Pool vs. Virtual Threads (Project Loom) In Spring Boot Applications](https://dzone.com/articles/request-handling-approaches-threadpool-webflux-cor) - usefull perfomance graphics
 - [ ] - There’s also an initiative to standardize the reactive streams API. The initiative is called [Reactive Streams](https://www.reactive-streams.org/). It defines a set of rules for asynchronous stream processing with non-blocking back pressure.
 - [ ] - reactive programming paradigm based on decouple receive events/messages/request/signals and handling/process them in parallel or later. Reactive consists of *async* and *non-blocking* approach where *main thread* **==not blocked==** and **==async event handling==**. **Don't be confused with *non-blocking I/O*(!!!)** this is **just possibility of platform to non-blocking/async I/O processes handling** (via `epoll()`, `wepoll()` etc.)
+- [ ] - *Observer pattern* It is often used for implementing distributed [event-handling](https://en.wikipedia.org/wiki/Event_handling "Event handling") systems in [event-driven software](https://en.wikipedia.org/wiki/Event-driven_programming "Event-driven programming")
+- *Observer pattern*  and implementations :
+	- Observer: **observable has a list of observers and notify them after some state changes**
+	- *Publisher-subscriber pattern* is a decoupled variation of Observer: **publisher send a message about state changing into message queue and subscribers gonna notified and poll this message**
+	- *Event Emitter/Target/Dispatcher pattern*
+	- *Signals pattern*
+- [ ] - [ReactiveX](https://reactivex.io/) (Rx) - language agnostic specification of reactive APIs developed by Microsoft
+- [ ] - Based on Rx specification  [Reactive Streams](https://github.com/reactive-streams/reactive-streams-jvm) is provider a **standard for asynchronous stream processing** with non-blocking backpressure for Java
+- [ ] -  Reactive Streams impls: 
+- [RxJava](https://github.com/ReactiveX/RxJava)  developed by Netflix 
+- [Project Reactor](https://github.com/reactor/reactor-core)
+- Spring Web Flux based on Project Reactor
+- [ ] - Flow API is Java's official support for [Reactive Streams Specification](http://www.reactive-streams.org/) (`java.util.concurrent.Flow`) 
+- [ ] - Reactive Streams has [FlowAdapters](https://github.com/reactive-streams/reactive-streams-jvm/blob/master/api/src/main/java9/org/reactivestreams/FlowAdapters.java) to implement Flow API after it's introduction
+- [ ] - Good *RP* [article](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) and [working Rx JS example](https://jsfiddle.net/staltz/8jFJH/48/) (sandbox)
+- [ ] - *RP* is just a way to manage of async data streams **???** 
+> *The main goal of Reactive Streams is to* **govern the exchange of stream data across an asynchronous boundary**
+> Multiple async operations linked in a chain and managed in some way - Reactive Programming **???**

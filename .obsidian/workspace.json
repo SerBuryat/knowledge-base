@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "async.md",
+                "file": "inbox/spring webflux.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "async.md",
+                "file": "inbox/spring webflux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "async.md",
+                "file": "inbox/spring webflux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "async.md"
+                "file": "inbox/spring webflux.md"
               }
             }
           }
@@ -149,25 +149,27 @@
   },
   "active": "e3fe7efa23c428eb",
   "lastOpenFiles": [
+    "inbox/side dev thoughts.md",
+    "inbox/threads, async.md",
+    "inbox/spring webflux.md",
+    "reactive programming.md",
+    "async.md",
+    "files/HttpClientImpl.SelectorManager.png",
+    "home/Knowledge Base (KB) structure.md",
+    "home/About Knowledge Base (KB).md",
     "VPS-VDS.md",
     "virtual hosting.md",
-    "async.md",
     "thread.md",
     "java multithreading.md",
-    "inbox/threads, async.md",
     "continuation.md",
     "coroutine.md",
     "java nio.md",
     "POSIX.md",
-    "reactive programming.md",
     "CPS.md",
-    "inbox/spring webflux.md",
     "Untitled.canvas",
-    "inbox/side dev thoughts.md",
     "IO processes.md",
     "socket.md",
     "file descriptor.md",
-    "home/Knowledge Base (KB) structure.md",
     "Node.js.md",
     "code/Java/HttpClient.md",
     "Untitled",
@@ -185,13 +187,10 @@
     "files/io-models/io-models.png",
     "files/io-operations-types.png",
     "files/io-models.gif",
-    "files/rx-observer-pattern.webp",
     "files/books/io_uring.pdf",
     "java.md",
     "files/books/Java NIO (O'Reilly).pdf",
     "files/books",
-    "hypethreading.md",
-    "fiber.md",
     "code/Java/Jackson",
     "code/Java",
     "files/fibers and coroutines.pdf",
