@@ -5,11 +5,11 @@
 - [x] - *direct memory access (DMA)* handling *I/O* without CPU ✅ 2024-07-24
 - [x] - **Direct memory access (DMA)** is a feature of computer systems that allows certain hardware subsystems to **access** main system **memory independently of the CPU**. **Without DMA**, when the **CPU** is using programmed input/output, it is typically **fully occupied for the entire duration of the read or write** operation, and is thus unavailable to perform other work. **With DMA, the CPU first initiates the transfer, then it does other operations** while the transfer is in progress, and it **finally receives an interrupt from the DMA** controller (DMAC) when the operation is done. ✅ 2024-07-24
 - [x] - async vs non-blocking ✅ 2024-07-24
-- [ ] - *async* execution vs *sync* execution - *async* can be set only against *sync* and vice versa
-- *sync* - going from up to bottom (in code), before reach code line 2 it need to
- complete a code line 1 
--  *async* - delegating some job in background and *main thread*(*execution thread*) goes forward instead wait this section of code (*this makes async is a non-blocking*), no need to wait line code 2 completion before run line code, 2 line can be run in background(another thread for example) 
-- [ ] - *non-blocking execution* (one of async attributes) (**dont be confused with *non-blocking I/O*(!!!)**) - means execution which doesn't block current execution flow, *main thread* stay responsive and another thread/operation doesn't block it
+- [x] - *async* execution vs *sync* execution - *async* can be set only against *sync* and vice versa ✅ 2024-09-14
+	- ~~*sync* - going from up to bottom (in code), before reach code line 2 it need to~~
+	 ~~complete a code line 1~~ 
+	-  ~~*async* - delegating some job in background and *main thread*(*execution thread*) goes forward instead wait this section of code (*this makes async is a non-blocking*), no need to wait line code 2 completion before run line code, 2 line can be run in background(another thread for example)~~ 
+- [x] - *non-blocking execution* (one of async attributes) (**dont be confused with *non-blocking I/O*(!!!)**) - means execution which doesn't block current execution flow, *main thread* stay responsive and another thread/operation doesn't block it ✅ 2024-09-14
 - [ ] - *blocking I/O* - operations which wait for I/O completion (thread going to WAIT state or next line of code WAIT until complete)  - `read()`/`wait()`
 - [ ] - *non-blocking I/O* - operations which doesn't wait I/O completion (`poll()`/`epoll()` etc.)
 - [ ] - async/await mechanism 
@@ -18,11 +18,11 @@
 - [ ] - red-blue colored code (sync/async) - [source](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
 - [ ] - `select()`, `poll()`, `epoll()`, `kqueue()` - async kernel level api (i/o multiplexing) - https://nima101.github.io/io_multiplexing
 - [ ] - concurrency models
-- [ ] - in *java NIO* is one thread (*may be event loop*) which server many *I/O* connections to check them if i/o complete (*epoll* linux under hood) - this mean you use **==single thread to serve many i/o operations==** instead *thread per i/o* (*if i/o compleate -> run callback with worker thread?*) - https://stackoverflow.com/questions/65490456/how-does-asynchrounous-nio-from-jdk-work (answer)
-- [ ] - *file descriptor*(FD), *socket*, *I/O operation*
+- [x] - in *java NIO* is one thread (*may be event loop*) which server many *I/O* connections to check them if i/o complete (*epoll* linux under hood) - this mean you use **==single thread to serve many i/o operations==** instead *thread per i/o* (*if i/o compleate -> run callback with worker thread?*) - https://stackoverflow.com/questions/65490456/how-does-asynchrounous-nio-from-jdk-work (answer) ✅ 2024-09-14
+- [x] - *file descriptor*(FD), *socket*, *I/O operation* ✅ 2024-09-14
 - [ ] - A *platform thread* is implemented as a thin wrapper around an OS(kernel) thread
 - [ ] - virtual thhread(fiber-"user-mode threads") = continuation(corutine) + scheduler
-- [ ] - for long running cpu-bound tasks better use kernel threads
+- [x] - for long running cpu-bound tasks better use kernel threads ✅ 2024-09-14
 - [ ] - virtual threads can be paused and resumed easily cause efficiant stack copying(no context switching as between threads) and scheduling mechanism
 - [x] - million virtual threads(fibers) reffers to several kernel threads ✅ 2024-06-06
 - [ ] - how is thread returns to the *thread pool* after jobs done
@@ -53,8 +53,8 @@
 - [ ] - two *fibers* on the same *kernel thread* will not run simultaneously on different processor cores
 - [ ] - when the invoker calls a *coroutine*, control immediately transfers into that *coroutine*; when the *coroutine* yields, control immediately returns to its caller
 - [ ] - via *virtual threads* Java tries to escape "red/blue colored code problem" (instead of using await/suspend words) - [that's why author said Java doesn't have red/blue code problem](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/#:~:text=Wanna%20know%20one%20that%20doesn%E2%80%99t%3F%20Java.%20I%20know%20right%3F%20How%20often%20do%20you%20get%20to%20say%2C%20%E2%80%9CYeah%2C%20Java%20is%20the%20one%20that%20really%20does%20this%20right.%E2%80%9D%3F%20But%20there%20you%20go.%20In%20their%20defense%2C%20they%20are%20actively%20trying%20to%20correct%20this%20oversight%20by%20moving%20to%20futures%20and%20async%20IO.)
-- [ ] - *event loop* is **design pattern** that waits for and **dispatches events or messages** in a program and the **core mechanism that enables asynchronous operations** 
-- [ ] *event loop* is what allows *Node.js* to perform *non-blocking I/O* operations cause *event loop* is the only one mechanism to do *async* stuff in JS
+- [x] - *event loop* is **design pattern** that waits for and **dispatches events or messages** in a program and the **core mechanism that enables asynchronous operations** ✅ 2024-09-14
+- [x] *event loop* is what allows *Node.js* to perform *non-blocking I/O* operations cause *event loop* is the only one mechanism to do *async* stuff in JS ✅ 2024-09-14
 - [ ] - In Go, things are similar, except that we have "one OS thread per CPU" and Go has its own scheduler that gives goroutines time on those threads. Quite a lot of I/O is, in fact, handled through an event loop; e.g. when a goroutine wants to read from a socket that doesn't have data available, it registers with the *netpoller* and goes to sleep. The *netpoller* is just an *event loop* using *nonblocking I/O* and *epoll* or *kqueue* or whatever your OS has for event notification — but it's one that you don't have to manage yourself. The runtime can put an abstraction of *blocking I/O* on top of the *event loop* just by suspending a *goroutine* and running another one ([link]([https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/](https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/ "https://www.reddit.com/r/golang/comments/xiu4zg/how_does_go_know_when_a_goroutine_hits_io_and_can/")))asdasdasdasd
 - [ ] - *Goriutines* (go *coroutines*) and `epoll()` non blocking io implementation([link]([https://medium.com/@chenymj23/diving-into-golang-how-does-it-effectively-wrap-the-functionality-of-epoll-26065f0654ba](https://medium.com/@chenymj23/diving-into-golang-how-does-it-effectively-wrap-the-functionality-of-epoll-26065f0654ba "https://medium.com/@chenymj23/diving-into-golang-how-does-it-effectively-wrap-the-functionality-of-epoll-26065f0654ba")))
 - [ ] - OS *async* *I/O* implementations (3 different API: *kqueue*, *epoll*, *IOCP*)([link]([https://habr.com/ru/articles/600123/](https://habr.com/ru/articles/600123/ "https://habr.com/ru/articles/600123/"))):
