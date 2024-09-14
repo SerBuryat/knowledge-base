@@ -47,3 +47,9 @@
 - [ ] - *RP* is just a way to manage of async data streams **???** 
 > *The main goal of Reactive Streams is to* **govern the exchange of stream data across an asynchronous boundary**
 > Multiple async operations linked in a chain and managed in some way - Reactive Programming **???**
+
+- [ ] - The [Reactor Pattern](https://www.dre.vanderbilt.edu/~schmidt/PDF/reactor-siemens.pdf) utilizes an intermediary service handler which demultiplexes requests and dispatches to the correct handler.
+- [ ] - The [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) requires that "Observers" register with the subject, which then pushes notifications to all registered observers when an event occurs.
+- [ ] - good simple [overview](https://struchkov.dev/blog/ru/overview-of-reactive-programming/) about reactive programming and reactive systems
+- [ ] - Reactive Streams underhood ([video](https://www.youtube.com/watch?v=qmuNAWKNJWs))
+- [ ] - Java Reactive Streams and Java Stream API

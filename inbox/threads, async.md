@@ -203,3 +203,14 @@
 	- **make sure using non-blocking I/O OS calls** (`poll`/`kqueue`/`iocp`) for *Event Loop* cause blocking I/O OS calls just `read`/`write`blocks *Event Loop* and solutions based on it (Netty/Reactor/Node.js etc.)
 	- *FD*s is living in the process memory and if process dies, all corresponding *FD*s also die 
 - Non-blocking I/O appends additional complexity like as "asynchronous code (*colored code*)"
+- [ ] - In a ==single-threaded== application, handling ==concurrency== effectively is ==achieved== through a ==synchronous event demultiplexer== or ==event notification interface==
+- [ ] - reactor pattern revolves around the concept of a handler, represented in Node.js as a ==callback function, being linked to each I/O operation==
+- [ ] - Node.js reactor pattern to handle I/O operations ![[node-js-reactor-pattern.webp]]
+1) Application(User) initiate I/O operation and submitting it to Event Demultiplexer with handler (callback function or application code)
+2) Event Demultiplexer - platform based polling I/O mechanism (`poll()`/`select()`) for monitoring ready I/O operations
+3) Event Loop - endless thread to iterate Event Queue and run ready I/O via their handler
+4) Event Queue - structure for ready I/O events with their handler
+5) Handler can call another I/O operation and cycle repeat
+6) When Event Queue is empty, Event Loop going to block mode to wait new ready events from Event Queue
+	Reactor pattern in Nodejs provides handlers that are executed at a later point in time when the corresponding I/O operations are finished (instead of waiting to each I/O is finished)
+- [ ] - 

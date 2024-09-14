@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/spring webflux.md",
+                "file": "inbox/threads, async.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/spring webflux.md",
+                "file": "inbox/threads, async.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/spring webflux.md",
+                "file": "inbox/threads, async.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/spring webflux.md"
+                "file": "inbox/threads, async.md"
               }
             }
           }
@@ -149,10 +149,24 @@
   },
   "active": "e3fe7efa23c428eb",
   "lastOpenFiles": [
-    "inbox/side dev thoughts.md",
+    "files/node-js-reactor-pattern.webp",
+    "event loop.md",
     "inbox/threads, async.md",
     "inbox/spring webflux.md",
     "reactive programming.md",
+    "virtual thread.md",
+    "inbox/side dev thoughts.md",
+    "files/virtual-thread-extends-thread.png",
+    "observer pattern.md",
+    "reactor pattern.md",
+    "node.js.md",
+    "netty.md",
+    "file descriptor.md",
+    "files/event-loop.png",
+    "files/event-loop.png.crdownload",
+    "java multithreading.md",
+    "OS process.md",
+    "IO processes.md",
     "async.md",
     "files/HttpClientImpl.SelectorManager.png",
     "home/Knowledge Base (KB) structure.md",
@@ -160,23 +174,14 @@
     "VPS-VDS.md",
     "virtual hosting.md",
     "thread.md",
-    "java multithreading.md",
     "continuation.md",
     "coroutine.md",
     "java nio.md",
     "POSIX.md",
     "CPS.md",
     "Untitled.canvas",
-    "IO processes.md",
-    "socket.md",
-    "file descriptor.md",
-    "Node.js.md",
-    "code/Java/HttpClient.md",
     "Untitled",
     "- infrastructure",
-    "code/Java/Jackson/@AssertTrue-@AssertFalse validation.md",
-    "OS process.md",
-    "virtual thread.md",
     "files/io-models/asynchronous-io-model.png",
     "files/spring-web-flux-thread-model.gif",
     "files/signal-driven-io-model.png",
@@ -185,16 +190,12 @@
     "files/io-models/non-blocking-io-model.png",
     "files/io-models/blocking-io-model.png",
     "files/io-models/io-models.png",
-    "files/io-operations-types.png",
-    "files/io-models.gif",
     "files/books/io_uring.pdf",
-    "java.md",
     "files/books/Java NIO (O'Reilly).pdf",
     "files/books",
     "code/Java/Jackson",
     "code/Java",
     "files/fibers and coroutines.pdf",
-    "I",
     "Untitled 1.canvas"
   ]
 }
