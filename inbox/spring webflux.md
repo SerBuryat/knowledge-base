@@ -51,5 +51,9 @@
 - [ ] - The [Reactor Pattern](https://www.dre.vanderbilt.edu/~schmidt/PDF/reactor-siemens.pdf) utilizes an intermediary service handler which demultiplexes requests and dispatches to the correct handler.
 - [ ] - The [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) requires that "Observers" register with the subject, which then pushes notifications to all registered observers when an event occurs.
 - [ ] - good simple [overview](https://struchkov.dev/blog/ru/overview-of-reactive-programming/) about reactive programming and reactive systems
-- [ ] - Reactive Streams underhood ([video](https://www.youtube.com/watch?v=qmuNAWKNJWs))
+- [ ] - Reactive Streams under-hood ([video](https://www.youtube.com/watch?v=qmuNAWKNJWs))
 - [ ] - Java Reactive Streams and Java Stream API
+- [ ] - [Spring WebFlux vs Node.js perfomance compare](https://community.sap.com/t5/technology-blogs-by-members/spring-boot-reactive-vs-node-js-in-sap-cloud-platform-reflection-on/ba-p/13374735)
+- ![[spring-webflux-vs-node-js-perfomance-compare.png]]
+- 1, 5, 10, 20, 30, 40, 50 users - 1000 requests/user loop
+- [ ] - 
