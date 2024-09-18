@@ -56,4 +56,8 @@
 - [ ] - [Spring WebFlux vs Node.js perfomance compare](https://community.sap.com/t5/technology-blogs-by-members/spring-boot-reactive-vs-node-js-in-sap-cloud-platform-reflection-on/ba-p/13374735)
 - ![[spring-webflux-vs-node-js-perfomance-compare.png]]
 - 1, 5, 10, 20, 30, 40, 50 users - 1000 requests/user loop
-- [ ] - 
+- [ ] - [Advance](https://medium.com/@manikmudholkar831995/async-io-in-nodejs-a57fe9c3ccc6) Node.js Async IO explanation 
+- [ ] - Node.js Event Loop use polling OS mechanisms (`epoll()`/`iocp()`/`kqueue()`)
+- [ ] - Node.js Event Loop [responsible for non-blocking I/O](https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop#:~:text=Event%20Loop%20is%20responsible%20for%20JavaScript%20callbacks%20and%20non%2Dblocking%20I/O) not a Worker Thread - libuv?
+- [ ] - [On low level R2DBC uses Netty](https://piotrd.hashnode.dev/javas-reactive-connection-pooling-performance-caveat#:~:text=R2DBC%20handles%20database%20interaction%2C%20but%20at%20the%20low%2Dlevel%20it%20uses%20netty.%20Netty%20is%20a%20real%20%22reactivity%22%20enabler%20here.)?
+- [ ] - Without reactive drivers for DB, Network, Queues, Kafka etc. cannot be non-blocking processes

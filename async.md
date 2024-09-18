@@ -1,4 +1,4 @@
->*the occurrence of events independent of the main program flow, and ways to deal with such events - [wiki](https://en.wikipedia.org/wiki/Asynchrony_(computer_programming))*
+>async means that things can happen independently of the main program flow
 
 Asynchronous - **code execution in an unspecified order**.
 
