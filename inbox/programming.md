@@ -1,0 +1,10 @@
+- [ ] - Functional programming
+	- Pure Functions
+	- No Side effects
+	- Immutable Variables
+	- Stateless??
+- programming paradigm revolves around the fundamental abstraction of function
+- use of expressions or declarations over statements
+- declarative approach - **what to do** and **NOT how to do**
+- immutable data principiles - good for scalability and better concurrent programming
+- lazy evaluation (defer computation) run only when executes
