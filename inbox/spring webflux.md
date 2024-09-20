@@ -66,3 +66,4 @@
 - [ ] - backpressure (to not overwhelm Observers with Observable events)
 - [ ] - Essentially Functional Programming is regarded as an important aspect of Reactive Programming
 - [ ] - Functional Programming promotes immutability making concurrent programming easier
+- [ ] - In Reactor, the execution model and where the execution happens is determined by the `Scheduler` that is used. A `Scheduler` has scheduling responsibilities similar to an `ExecutorService`.

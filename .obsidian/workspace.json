@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/spring webflux.md",
+                "file": "projects/Web services I,O architecture.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/spring webflux.md",
+                "file": "projects/Web services I,O architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/spring webflux.md",
+                "file": "projects/Web services I,O architecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/spring webflux.md"
+                "file": "projects/Web services I,O architecture.md"
               }
             }
           }
@@ -149,9 +149,11 @@
   },
   "active": "b90fb431cddb0393",
   "lastOpenFiles": [
+    "inbox/spring webflux.md",
+    "projects/Web services I,O architecture.md",
+    "projects",
     "inbox/programming.md",
     "inbox/java.md",
-    "inbox/spring webflux.md",
     "reactive programming.md",
     "inbox/node.js.md",
     "inbox/threads, async.md",
@@ -182,9 +184,7 @@
     "VPS-VDS.md",
     "virtual hosting.md",
     "continuation.md",
-    "java nio.md",
     "Untitled.canvas",
-    "Untitled",
     "- infrastructure",
     "files/io-models/asynchronous-io-model.png",
     "files/spring-web-flux-thread-model.gif",

@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "🗃",
       "🖥",
       "🏠",
       "📂",
-      "☑",
-      "✳"
+      "☑"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -37,6 +37,6 @@
   "tasks": "☑",
   "files": "📂",
   "home": "🏠",
-  "projects": "🗄",
+  "projects": "🗃",
   "code": "🖥"
 }
