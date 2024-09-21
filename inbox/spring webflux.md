@@ -52,8 +52,9 @@
 - [ ] - The [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) requires that "Observers" register with the subject, which then pushes notifications to all registered observers when an event occurs.
 - [ ] - good simple [overview](https://struchkov.dev/blog/ru/overview-of-reactive-programming/) about reactive programming and reactive systems
 - [ ] - Reactive Streams under-hood ([video](https://www.youtube.com/watch?v=qmuNAWKNJWs))
-- [ ] - Java Reactive Streams and Java Stream API
-- [ ] - [Spring WebFlux vs Node.js perfomance compare](https://community.sap.com/t5/technology-blogs-by-members/spring-boot-reactive-vs-node-js-in-sap-cloud-platform-reflection-on/ba-p/13374735)
+- [ ] - Java Reactive Streams vs Java Stream API
+- [ ] - Unlike Java 8's streams, RxJava also has a [backpressure](http://reactivex.io/documentation/operators/backpressure.html) mechanism, which allows it to handle cases in which different parts of your processing pipeline operate in different threads, _at different rates_.
+- [ ] - [Spring WebFlux vs Node.js performance compare](https://community.sap.com/t5/technology-blogs-by-members/spring-boot-reactive-vs-node-js-in-sap-cloud-platform-reflection-on/ba-p/13374735)
 - ![[spring-webflux-vs-node-js-perfomance-compare.png]]
 - 1, 5, 10, 20, 30, 40, 50 users - 1000 requests/user loop
 - [ ] - Following are the core concepts of Reactive Programming (ReactiveX): 
@@ -67,3 +68,23 @@
 - [ ] - Essentially Functional Programming is regarded as an important aspect of Reactive Programming
 - [ ] - Functional Programming promotes immutability making concurrent programming easier
 - [ ] - In Reactor, the execution model and where the execution happens is determined by the `Scheduler` that is used. A `Scheduler` has scheduling responsibilities similar to an `ExecutorService`.
+- [ ] - By definition, every stream is lazy. This means that nothing is executed until you consume the stream with `subscribe()`. This possibility provided by functional programming where every function is lazy.
+- [ ] - Flux and Mono are immutable. This means that an instance of any of them can not be modified at all. Calling any method on them will return a new instance of Flux or Mono. This possibility provided by functional programming where every function is immutable.
+- [ ] - The 4 schedulers offered by Reactor are :
+- **single**: a one worker thread scheduler
+- **immediate**: a scheduler that computes the stream in the thread where the call to the method configuring it is done.
+- **parallel**: a scheduler that has as many workers as your CPU has cores (or threads if supporting hyper threading). The method it uses to get the amount of workers to use is `Runtime.getRuntime().availableProcessors()`
+- **elastic**: a scheduler that dynamically creates threads when needed, with no up limit. A thread is released after 60 non-working seconds.
+- [ ] - `subscribeOn(...)` sets the scheduler for all the operations of your stream
+- [ ] - `publishOn(...)` sets the scheduler for all the operations that follow this method call
+- [ ] - `Flux` runs sequentially by default. To make a Flux parallel, there exists a `.parallel()` method in the class. Conversely, it is possible to turn a parallel flux into a sequential flux with the method `.sequential()`
+- [ ] - the stream cannot be asynchronous if a publisher is synchronous and the stream is blocking if a publisher blocks
+- [ ] - `Flux` and `Mono` objects model a suspendable, resumable chain of operations. It means the engine can "park" actions, and later schedule their execution on an available thread.
+- [ ] - The **==best quick and simple overview==** about [Non-blocking I/O](https://medium.com/ing-blog/how-does-non-blocking-io-work-under-the-hood-6299d2953c74): 
+- The main benefit of non-blocking IO is that we need less threads to handle the same amount of IO requests
+- When data has returned from IO, the caller will be notified that the data is ready. This is generally done with a _callback_ function that has access to the returned data.
+- Another important “optimization” is that a call to`kqueue(..)` or `epoll(..)` blocks if there is no ready data in the FDs of the interest list. This means that there are no unnecessary iterations in the event loop when there is no ready FD data.
+- From kernel 5.1 Linux offers `[io_uring](https://github.com/axboe/liburing)`, which can even further optimize an event loop. It does so by minimizing expensive system calls and minimize copying of data.
+- Applications that need to handle high event rates mostly use non-blocking IO models that are implemented with event loops. or best performance, the event loop is built using kernel APIs such as `kqueue`, `io_uring`, `epoll` and `IOCP`
+- [ ] - `Future`(hot stream) is a pull based pub/sub and `Mono`(cold/hot stream) is push based pub/sub?? - [StackOverFlow](https://stackoverflow.com/questions/54238755/difference-between-a-future-and-a-mono#:~:text=Add%20a%20comment-,5,Producer%20and%20consumer%20can%20communicate%20in%202%20ways%3A%20synchronous%20and%20asynchronous,-.)
+- [ ] - `Future` vs `CompletableFuture` vs `Mono`
