@@ -66,6 +66,7 @@
 - [ ] -`wepoll()` Widnows impl of Linux `epoll()`
 - [ ] - *file descriptor* is an integer that uniquely identifies an open file of the process (an abstraction for file or socket)
 - [ ] - `select()`, `epoll()` and other commands use *file descriptors*.  *File descriptor* are non-negative integer points to handling *I/O resources*(file, socket etc.). *FD* mapped to *I/O op* and provide info about it: status, type, etc.  When client code start *I/O op* OS returns *FD* to client code for monitoring *FD* ( mapped *I/O op*) .
+- [ ] - The total number of client connections, database files, and log files must not exceed the maximum *FD* limit on the OS (ulimit -n). By default, the directory server allows an unlimited number of connections but is restricted by the *FD* limit on the OS. Linux systems limit the number of *FD* that ==any one process== may open to 1024 per process.
 - [ ] - CPU interrupts and *interrupt service routines(ISR)* mechanisms running some code (**==handler/callback???==**) after some event happend(*I/O ops* completed, some device event)
 - [ ] - Any *file descriptor* that represents a physical device relies on an interrupt. Everything else like a pipe is internal to the operating system, and therefore the kernel already knows about the activity related to the descriptor. Very old unixes and other old operating systems didn't do this, they have to poll the hardware device to see if anything had happened. This took a fair bit of CPU time.
 - [ ] - *socket* event monitoring OS methods:
@@ -213,4 +214,13 @@
 5) Handler can call another I/O operation and cycle repeat
 6) When Event Queue is empty, Event Loop going to block mode to wait new ready events from Event Queue
 	Reactor pattern in Nodejs provides handlers that are executed at a later point in time when the corresponding I/O operations are finished (instead of waiting to each I/O is finished)
-- [ ] - 
+- [ ] - `io_uring` - it is a new way how programs can talk to the kernel (and be notified back) via memory mapped ring-buffers
+- [ ] - memory mapped ring-buffers - structure of asynchronous i/o rings
+- [ ] - `epoll()` vs `io_uring()` [performance numbers](https://netty.io/news/2020/11/16/io_uring-0-0-1-Final.html#:~:text=Are%20there%20any%20performance%20numbers%3F)
+- [ ] - [Zuul 2 Netflix article](https://netflixtechblog.com/zuul-2-the-netflix-journey-to-asynchronous-non-blocking-systems-45947377fb5c) (move from blocking thread-per-request to non-blocking and async):
+- ==Async systems== operate differently, with generally ==one thread per CPU core== handling all requests and responses. The lifecycle of the request and response is ==handled through events and callbacks==. Because there is not a thread for each request, the ==cost of connections is cheap==. This is the ==cost of a file descriptor, and the addition of a listener.== Whereas the ==cost== of a connection in the ==blocking model== is a ==thread and with heavy memory and system overhead==. There are some efficiency gains because ==data stays on the same CPU==, making ==better use of CPU level caches== and requiring fewer ==context switches==.'
+- Zuul Netflix [integration tests](https://github.com/Netflix/zuul/blob/master/zuul-integration-test/src/test/java/com/netflix/zuul/integration/IntegrationTest.java#L158) (just for check how tests written in Netflix), there is a [memory leak checker](https://github.com/Netflix/zuul/blob/master/zuul-integration-test/src/test/java/com/netflix/netty/common/metrics/CustomLeakDetector.java#L24) cause of async and non blocking nature:
+>Edge cases, unhandled exceptions, and incorrectly handled state changes create dangling resources resulting in ByteBuf leaks, file descriptor leaks, lost responses, etc. These types of issues have proven to be quite difficult to debug because it is difficult to know which event wasn’t handled properly or cleaned up appropriately.
+- our evaluation is that the more CPU-bound a system is, the less of an efficiency gain we see
+- we thus observed that the less work a system actually does, the more efficiency we gain from async
+- to continue to ==tease out thread local variables==(the bottleneck for async code integration) and other assumptions of blocking in client libraries and other supporting code

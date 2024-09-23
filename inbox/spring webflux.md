@@ -88,3 +88,4 @@
 - Applications that need to handle high event rates mostly use non-blocking IO models that are implemented with event loops. or best performance, the event loop is built using kernel APIs such as `kqueue`, `io_uring`, `epoll` and `IOCP`
 - [ ] - `Future`(hot stream) is a pull based pub/sub and `Mono`(cold/hot stream) is push based pub/sub?? - [StackOverFlow](https://stackoverflow.com/questions/54238755/difference-between-a-future-and-a-mono#:~:text=Add%20a%20comment-,5,Producer%20and%20consumer%20can%20communicate%20in%202%20ways%3A%20synchronous%20and%20asynchronous,-.)
 - [ ] - `Future` vs `CompletableFuture` vs `Mono`
+- [ ] - The open source project [Reactive-Audit](https://github.com/octo-online/reactive-audit) was helpful by instrumenting our servers to discover cases where code blocks and libraries were blocking

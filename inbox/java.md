@@ -5,3 +5,4 @@
 - [ ] - *Stream API* facilitates a functional programming approach for handling collections
 - [ ] - `Stream` operations execute lazily, improving performance by running only when needed (when `terminal operations` called)
 - [ ] - `parallelStream()` method allows streams to take advantage of parallel processing, enabling concurrent execution on multi-core processors
+- [ ] - 

@@ -25,6 +25,8 @@ Next, show and explain those models via 3 apps:
 	- non-blocking i/o operations
 	- reactive drivers for external i/o systems(db, kafka, rest api, etc.) 
 	- thread model based on actual ReactiveX language realization
+- **app v.4** - using `VirtualThread`?
+- **app v.5** - using async IO (AIO) as `io_uring`?
 
 Need a picture for every app:
 - 3 parts (from bottom to up): hardware device, OS (OS API), user app (developed with some programming language)

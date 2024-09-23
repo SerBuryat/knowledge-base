@@ -8,3 +8,5 @@
 - declarative approach - **what to do** and **NOT how to do**
 - immutable data principiles - good for scalability and better concurrent programming
 - lazy evaluation (defer computation) run only when executes
+- [ ] - [Netflix on Java: How to build a 1TB Non-Heap, ultra-efficient application for video streaming](https://techblog.dac.digital/netflix-on-java-how-to-build-a-1tb-non-heap-ultra-efficient-application-for-video-streaming-an-b38637224ff8)
+- [ ] - 
