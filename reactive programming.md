@@ -1,5 +1,7 @@
 Reactive programming is  ==declarative programming paradigm== concerned with the ==propagation of change== and ==async data streams==.
 
+> just another style of programming and writing code
+
 The core of reactive programming is reactive streams based on [[observer pattern]] idea:
 - subscribe for object events
 - react to this events

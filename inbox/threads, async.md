@@ -224,3 +224,9 @@
 - our evaluation is that the more CPU-bound a system is, the less of an efficiency gain we see
 - we thus observed that the less work a system actually does, the more efficiency we gain from async
 - to continue to ==tease out thread local variables==(the bottleneck for async code integration) and other assumptions of blocking in client libraries and other supporting code
+- [ ] - `AsynchronousFileChannel`: 
+- On Linux, the `AsynchronousFileChannel` merely shifts a **blocking** IO operation to an `ExecutorService`. There is no native support.
+- It is easier to exhaust available heap memory than with a synchronous `FileChannel` if you submit writes faster than the IO operations can complete.
+- OS lies. Be mindful that, at a lower level, the OS also presents a concept of asynchronous. Generally, by the time OSes return a IO call, they have only transparently written data to memory buffers. Only after do they actually persist to physical disks.
+- ![[java-file-nio.png]]
+- [ ] - 

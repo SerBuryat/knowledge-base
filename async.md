@@ -16,7 +16,7 @@ We cant compare async and mutlithreading:
 - async - about execution order
 - multithreading - ability of CPU to provide multiple execution threads
 
-We can **achieve async via multithreading**:
+We can **achieve async**:
 - async could use single thread (JS and it's Event Loop example)
 - async could use multithreading (Java multihreading example)
 
