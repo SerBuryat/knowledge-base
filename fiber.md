@@ -1,6 +1,6 @@
-Fiber is a **==lightweight user-mode thread of execution==**.
+Fiber is a **==lightweight user-mode thread==**.
 
-> *fibers implemented as computer program component between userspace and OS platform threads*
+> *fibers implemented as computer program component between user space and OS platform threads*
 
 Fibers are instead a ==**form of cooperative multitasking**== ([[thread#Thread models]]). It means that it is our responsibility for the fibers to co-operate with each other.
 

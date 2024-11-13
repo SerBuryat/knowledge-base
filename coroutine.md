@@ -7,7 +7,7 @@ Implement **==cooperative multitasking==** model. ([[thread#Thread models]])
 
 *Coroutine* has ==**internal mechanism of suspending/rerunning**== code. (except of [[fiber]] which has some scheduler)
 
->*when the invoker calls a coroutine, control immediately transfers into that coroutine; 
+>*when call coroutine, control immediately transfers into that coroutine; 
 >when the coroutine yields/suspend, control immediately returns to its caller*
 ```
 struct Caller(coroutine) {

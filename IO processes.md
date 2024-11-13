@@ -30,6 +30,8 @@ When nonblocking we are telling the kernel "**==when an I/O operation request ca
 
 ### I/O Multiplexing Model
 
+>I/O multiplexing refers to the concept of processing multiple input/output events from a single event loop, with system calls like poll and select (Unix). –[Wikipedia](https://en.wikipedia.org/wiki/Multiplexing)
+
 With **I/O multiplexing**, we call `select()` or `poll()` and **==block in one of these two system calls==**, **==instead of blocking in the actual I/O system call==**.
 
 ![[multiplexed-io-model.png]]
@@ -79,5 +81,7 @@ In this method, when the **==*CPU* receives notification that a device is ready 
 Source:
 - [Input/output](https://en.wikipedia.org/wiki/Input/output)
 - [ I/O Multiplexing: The select and poll Functions](https://notes.shichao.io/unp/ch6/#chapter-6-io-multiplexing-the-select-and-poll-functions)
+- [I/O Multiplexing (select vs. poll vs. epoll/kqueue)](https://nima101.github.io/io_multiplexing)
 - [Asynchronous I/O](https://en.wikipedia.org/wiki/Asynchronous_I/O)
 - [asynchronous and non-blocking calls? also between blocking and synchronous](https://stackoverflow.com/questions/2625493/asynchronous-and-non-blocking-calls-also-between-blocking-and-synchronous)
+- 

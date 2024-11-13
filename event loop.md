@@ -1,6 +1,6 @@
 ==Endless non-blocking IO thread==.
 
-*Event loop* is **design pattern** that waits for and ==dispatches events or messages== in a program and the ==core mechanism that enables asynchronous operations== 
+*Event loop* is **design pattern** that waits and ==dispatches events or messages== in a program and the ==core mechanism that enables asynchronous operations== 
 
 *Event loop* main task is `polling()` new incoming requests or events and dispatch it to event handlers
 

@@ -10,14 +10,14 @@
 	 ~~complete a code line 1~~ 
 	-  ~~*async* - delegating some job in background and *main thread*(*execution thread*) goes forward instead wait this section of code (*this makes async is a non-blocking*), no need to wait line code 2 completion before run line code, 2 line can be run in background(another thread for example)~~ 
 - [x] - *non-blocking execution* (one of async attributes) (**dont be confused with *non-blocking I/O*(!!!)**) - means execution which doesn't block current execution flow, *main thread* stay responsive and another thread/operation doesn't block it ✅ 2024-09-14
-- [ ] - *blocking I/O* - operations which wait for I/O completion (thread going to WAIT state or next line of code WAIT until complete)  - `read()`/`write()` OS level API methods
-- [ ] - *non-blocking I/O* - operations which doesn't wait I/O completion (`poll()`/`epoll()` etc.)
+- [x] - *blocking I/O* - operations which wait for I/O completion (thread going to WAIT state or next line of code WAIT until complete)  - `read()`/`write()` OS level API methods ✅ 2024-11-13
+- [x] - *non-blocking I/O* - operations which doesn't wait I/O completion (`poll()`/`epoll()` etc.) ✅ 2024-11-13
+- [ ] - async I/O - async operations with `io_uring`
 - [ ] - async/await mechanism 
-- [ ] - async models
+- [ ] - [concurrency models](https://jenkov.com/tutorials/java-concurrency/concurrency-models.html)
 - [x] - CPU and *I/O* bound processes ✅ 2024-07-24
 - [ ] - red-blue colored code (sync/async) - [source](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/)
-- [ ] - `select()`, `poll()`, `epoll()`, `kqueue()` - async kernel level api (i/o multiplexing) - https://nima101.github.io/io_multiplexing
-- [ ] - concurrency models
+- [x] - `select()`, `poll()`, `epoll()`, `kqueue()` - async kernel level api (i/o multiplexing) - https://nima101.github.io/io_multiplexing ✅ 2024-11-13
 - [x] - in *java NIO* is one thread (*may be event loop*) which server many *I/O* connections to check them if i/o complete (*epoll* linux under hood) - this mean you use **==single thread to serve many i/o operations==** instead *thread per i/o* (*if i/o compleate -> run callback with worker thread?*) - https://stackoverflow.com/questions/65490456/how-does-asynchrounous-nio-from-jdk-work (answer) ✅ 2024-09-14
 - [x] - *file descriptor*(FD), *socket*, *I/O operation* ✅ 2024-09-14
 - [ ] - A *platform thread* is implemented as a thin wrapper around an OS(kernel) thread

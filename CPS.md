@@ -1,3 +1,5 @@
+> one from many methods to achieve asynchronous behavior
+
 **[[continuation]]-passing style (CPS) is a programming model** used to **manage control flow** in software applications. It provides a **way to handle *asynchronous* or *callback*-based programming** by explicitly **passing control from one function to another**.
 
 CPS is a technique of code execution model in which **functions receive arguments representing their future behavior** - **these arguments are called *continuations* (*callback* or "rest of the computation")**.
