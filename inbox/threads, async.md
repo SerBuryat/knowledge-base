@@ -1,6 +1,6 @@
 - [x] - *CPS*(*continuation passing style*) ✅ 2024-06-26
 - [x] - *async* via *callbacks* implemantation ✅ 2024-06-26
-- [ ] - *callback*/*future*-*promise*/*async-await* is *CPS* impls
+- [x] - *callback*/*future*-*promise*/*async-await* is *CPS* impls ✅ 2024-11-13
 - [x] - java *virtual threads* is M:N thread model (**great** M user-mode threads scheduled to **few** N kernel(platform) threads - M >> N) ✅ 2024-06-06
 - [x] - *direct memory access (DMA)* handling *I/O* without CPU ✅ 2024-07-24
 - [x] - **Direct memory access (DMA)** is a feature of computer systems that allows certain hardware subsystems to **access** main system **memory independently of the CPU**. **Without DMA**, when the **CPU** is using programmed input/output, it is typically **fully occupied for the entire duration of the read or write** operation, and is thus unavailable to perform other work. **With DMA, the CPU first initiates the transfer, then it does other operations** while the transfer is in progress, and it **finally receives an interrupt from the DMA** controller (DMAC) when the operation is done. ✅ 2024-07-24
@@ -10,7 +10,7 @@
 	 ~~complete a code line 1~~ 
 	-  ~~*async* - delegating some job in background and *main thread*(*execution thread*) goes forward instead wait this section of code (*this makes async is a non-blocking*), no need to wait line code 2 completion before run line code, 2 line can be run in background(another thread for example)~~ 
 - [x] - *non-blocking execution* (one of async attributes) (**dont be confused with *non-blocking I/O*(!!!)**) - means execution which doesn't block current execution flow, *main thread* stay responsive and another thread/operation doesn't block it ✅ 2024-09-14
-- [ ] - *blocking I/O* - operations which wait for I/O completion (thread going to WAIT state or next line of code WAIT until complete)  - `read()`/`wait()`
+- [ ] - *blocking I/O* - operations which wait for I/O completion (thread going to WAIT state or next line of code WAIT until complete)  - `read()`/`write()` OS level API methods
 - [ ] - *non-blocking I/O* - operations which doesn't wait I/O completion (`poll()`/`epoll()` etc.)
 - [ ] - async/await mechanism 
 - [ ] - async models

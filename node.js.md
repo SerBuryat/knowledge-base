@@ -12,8 +12,6 @@ Node.js has a built-in package manager called *npm*, which makes **==it easy to 
 Node.js uses a small number of threads to handle many clients. 
 In Node.js there are two types of threads: one Event Loop (aka the main loop, main thread, event thread, etc.), and a pool of `k` Workers in a Worker Pool (aka the thread-pool).
 
-
-
 ## Asynchronousity
 
 ### Callbacks

@@ -26,9 +26,16 @@ Threads have ==***common* heap**== and ==***separated* stacks**==.
 
 Means **=="dirty parallelism"==** - multiple threads execution **==on single CPU==**.
 Thread can be **==interrupted(stopped) in middle of his execution==** by another thread to run.
-> *For human sight even concurrency looks like "at the same time" cause of realy fast CPU threads switching (4ghz CPU speed = 4B ops per sec)*
+> *For human sight even concurrency looks like "at the same time" cause of relay fast CPU threads switching (4ghz CPU speed = 4B ops per sec)*
 
+concurrency "levels" in multithreaded context:
+- for CPU usage (*threads > cores*)
+- for common resources (*leads to "deadlock" or "race condition"*) 
 
+concurrency management:
+- manage threads (`Schedulers`,`Executors`)
+- manage common resource access and usage (`Atomic...`, `Lock` , `synchronized`)
+>IMHO: common resource usage can be avoided via preemptive multitasking cause thread themself can `yeild` his execution in appropriate time 
 ### Parallelism
 
 Means **=="true parallelism"==** *(unlike "Concurrency")* is possible **==only for multicore CPU==** - threads possible to **==run at the same time==** on different CPUs *(physical or virtual via [[hypethreading]])*.
